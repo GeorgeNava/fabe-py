@@ -17,10 +17,10 @@ Download it from here [fabe.zip](http://github.com/GeorgeNava/fabe-py/downloads)
 - Upload everything to AppEngine
 - Run http://yourappname.appspot.con/install
 
-Presto! A nice blog engine for yourself, and free!
-
 Extra steps:
 
 - Change the avatar
 - Edit sidebar.html to suit your needs
 - Edit default.css to any theme you like
+
+Presto! A nice blog engine for yourself, and free!
