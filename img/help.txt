@@ -1,0 +1,5 @@
+Img folder is not being uploaded, help!
+
+If you know how to upload a folder to github please let me know
+
+georgenava at gmail
