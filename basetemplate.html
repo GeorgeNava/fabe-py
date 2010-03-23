@@ -1,0 +1,41 @@
+<html>
+<head>
+{% block title %}<title>{{options.title}}</title>{% endblock %}
+<link rel="stylesheet" type="text/css" href="/{{options.theme}}.css" />
+<link rel="alternate"  type="application/atom+xml" href="{{options.url}}/feed" title="{{options.title}}" /> 
+{% block styles %}{% endblock %}
+{% block scripts %}{% endblock %}
+</head>
+<body>
+<div id="wrap">
+<div id="page">
+<div id="head">
+  <h1><a href="/">{{options.title}}</a></h1>
+  <h2>{{options.subtitle}}</h2>
+  <div id="menu"><a id="home" href="/">&nbsp;</a><a href="http://mail.google.com/mail/">Mail</a><a href="http://www.google.com/calendar/">Calendar</a><a href="http://docs.google.com">Documents</a><a href="/admin" id="admin">Admin</a></div>
+</div><!-- head -->
+<div id="main">
+<div id="left">
+{% block content %}
+<div class="post">
+  <h1>Here goes a rant</h1>
+  <p>Lorem ipsum dolor sit amet.</p>
+</div>
+{% endblock %}
+</div><!-- left -->
+<div id="side">
+{% block sidebar %}{% endblock %}
+</div><!-- side -->
+</div><!-- main -->
+<div id="foot">{{options.footer}}</div>
+</div><!-- page -->
+</div><!-- wrap -->
+{% block analytics %}
+{% if options.useanalytics %}
+<!-- Analytics -->
+<script type="text/javascript">var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www."); document.write(unescape("%3Cscript src='"+gaJsHost+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">try{var pageTracker = _gat._getTracker("{{options.analyticscode}}"); pageTracker._trackPageview();} catch(err){}</script>
+{% endif %}
+{% endblock %}
+</body>
+</html>

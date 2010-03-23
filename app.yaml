@@ -1,0 +1,56 @@
+application: georgenava
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /
+  script: index.py
+
+- url: /favicon.ico
+  static_files: favicon.ico
+  upload: favicon.ico
+
+- url: /img
+  static_dir: img
+
+- url: /default.css
+  static_files: default.css
+  upload: default.css
+
+- url: /feed
+  script: feed.py
+
+- url: /blog/.*
+  script: blog.py
+
+- url: /admin/?
+  script: admin.py
+  login: admin
+
+- url: /admin/newpost
+  script: newpost.py
+
+- url: /admin/preview
+  script: preview.py
+
+- url: /admin/publish
+  script: publish.py
+
+- url: /admin/edit/.*
+  script: edit.py
+
+- url: /admin/review
+  script: review.py
+
+- url: /admin/update
+  script: update.py
+
+- url: /admin/delete
+  script: delete.py
+
+- url: /admin/options
+  script: options.py
+
+- url: /install
+  script: install.py

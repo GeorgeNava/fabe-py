@@ -1,0 +1,14 @@
+{% extends "basetemplate.html" %}
+{% block content %}
+{% for entry in history %}
+<div class="post">
+  <h1><a href="blog/{{entry.url}}">{{entry.title}}</a></h1>
+  <time>{{entry.date|date:"D, d M Y"}}</time>
+  <div>
+  {{entry.content}}
+  </div>
+</div><!-- post -->
+{% endfor %}
+{% endblock %}
+
+{% block sidebar %}{% include "sidebar.html" %}{% endblock %}

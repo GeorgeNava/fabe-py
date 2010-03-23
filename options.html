@@ -1,0 +1,41 @@
+{% extends "basetemplate.html" %}
+{% block title   %}<title>Blog Options</title>{% endblock %}
+{% block scripts %}
+<script>
+function   save(){ document.forms[0].submit(); }
+function cancel(){ document.forms[0].submit(false); window.location.href="/admin"; }
+</script>
+{% endblock %}
+{% block content %}
+<div class="post">
+  <h2>Setting up your blog</h2>
+  <form id="options" method="POST" action="/admin/options">
+    <label for="xurl"     >Url:       </label><input id="xurl"      name="xurl"      type="textbox" value="{{options.url}}"      /><br>
+    <label for="xtitle"   >Blog Title:</label><input id="xtitle"    name="xtitle"    type="textbox" value="{{options.title}}"    /><br>
+    <label for="xsubtitle">Subtitle:  </label><input id="xsubtitle" name="xsubtitle" type="textbox" value="{{options.subtitle}}" /><br>
+    <label for="xfooter"  >Footer:    </label><input id="xfooter"   name="xfooter"   type="textbox" value="{{options.footer}}"   /><br>
+    <label for="xauthor"  >Author:    </label><input id="xauthor"   name="xauthor"   type="textbox" value="{{options.author}}"   /><br>
+    <label for="xemail"   >Email:     </label><input id="xemail"    name="xemail"    type="textbox" value="{{options.email}}"    /><br>
+    <label for="xavatar"  >Avatar:    </label><input id="xavatar"   name="xavatar"   type="textbox" value="{{options.avatar}}"   /><br>
+    <br>
+    <label for="xuseanalytics" >Use Google Analytics?</label><input id="xuseanalytics1" name="xuseanalytics"  type="radio"   value="True" {% if options.useanalytics  %}checked="checked"{% endif %} /> Yes <input id="xuseanalytics0"  name="xuseanalytics" type="radio" value="False" {% if not options.useanalytics %}checked="checked"{% endif %} /> No<br>
+    <label for="xanalyticscode">Analytics code:      </label><input id="xanalyticscode" name="xanalyticscode" type="textbox" value="{{options.analyticscode}}" /><br>
+    <br>
+    <label for="xusedisqus"    >Use Disqus comments?:</label><input id="xusedisqus1"    name="xusedisqus"     type="radio"   value="True" {% if options.usedisqus  %}checked="checked"{% endif %} /> Yes <input id="xusedisqus0"  name="xusedisqus" type="radio" value="False" {% if not options.usedisqus %}checked="checked"{% endif %} /> No<br>
+    <label for="xdisquscode"   >Disqus ID:           </label><input id="xdisquscode"    name="xdisquscode"    type="textbox" value="{{options.disquscode}}"    /><br>
+
+  </form>
+  <button onclick="save()"  >Save options</button> 
+  <button onclick="cancel()">Cancel</button> 
+</div><!-- post -->
+{% endblock %}
+
+{% block sidebar %}
+  <div class="panel"> 
+    <h1>Actions</h1> 
+    <ul> 
+      <li><a href="javascript:save()"  >Save options</a></li> 
+      <li><a href="javascript:cancel()">Cancel</a></li> 
+    </ul> 
+  </div> 
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "basetemplate.html" %}
+{% block title   %}<title>Admin Console</title>{% endblock %}
+{% block scripts %}
+<script>
+function delpost(title,url,n){
+  var ok=confirm('Title: '+title+'.\n\n Do you want to delete this entry?');
+  if(ok){ ajax('/admin/delete','url='+url,delrow,n); } // delete post 
+}
+function delrow(res,n){
+  var tr = document.querySelector("#row"+n);
+  tr.parentNode.removeChild(tr);
+}
+function ajax(url,data,callback,args){
+  var http = new XMLHttpRequest();
+  if(!data){mode="GET";} else {mode="POST";}
+  http.open(mode,url,true);
+  if(mode=="POST"){http.setRequestHeader('Content-Type','application/x-www-form-urlencoded');}
+  http.onreadystatechange=function(){if(http.readyState==4){callback(http.responseText,args);}};
+  http.send(data);
+}
+</script>
+{% endblock %}
+ 
+{% block content %}
+<div class="post">
+  <h1>Blog entries</h1>
+  <table id="posts">
+  {% for entry in history %}
+    <tr id="row{{forloop.counter}}"><td><a href="/blog/{{entry.url}}">{{entry.title}}</a></td><td>{{entry.date|date:"D, d M Y"}}</td><td><a href="/admin/edit/{{entry.url}}">Edit</a></td><td><a href="javascript:delpost('{{entry.title}}','{{entry.url}}',{{forloop.counter}})">Delete</a></td></tr>
+  {% endfor %}
+  </table>
+</div><!-- post -->
+{% endblock %}
+
+{% block sidebar %}
+  <div class="panel"> 
+    <h1>Admin console</h1> 
+    <ul> 
+      <li><a href="/admin"         >List all entries</a></li> 
+      <li><a href="/admin/newpost" >Add new article </a></li> 
+      <li><a href="/admin/blogroll">Edit blogroll   </a></li> 
+      <li><a href="/admin/style"   >Edit style      </a></li> 
+      <li><a href="/admin/options" >Edit options    </a></li> 
+      <li><a href="/admin/stats"   >View statistics </a></li> 
+    </ul> 
+  </div> 
+{% endblock %}

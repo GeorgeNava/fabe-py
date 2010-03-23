@@ -1,0 +1,44 @@
+{% extends "basetemplate.html" %}
+{% block title   %}<title>New article</title>{% endblock %}
+{% block styles  %}<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.8.0r4/build/editor/assets/skins/sam/simpleeditor.css">{% endblock %}
+{% block scripts %}
+<script src="http://yui.yahooapis.com/combo?2.8.0r4/build/yahoo-dom-event/yahoo-dom-event.js&2.8.0r4/build/container/container_core-min.js&2.8.0r4/build/element/element-min.js&2.8.0r4/build/editor/simpleeditor-min.js"></script>
+<script>
+var myEditor,myConfig,Dom,Event;
+function showEditor(control) {
+  Dom=YAHOO.util.Dom;
+  Event=YAHOO.util.Event;
+  myConfig = {width:'560px',height:'280px',dompath:false,focusAtStart:true};
+  myEditor = new YAHOO.widget.SimpleEditor(control,myConfig);
+  myEditor.render();
+  myEditor._defaultToolbar.titlebar=''
+}
+function preview(){ myEditor.saveHTML(); document.forms[0].submit(); }
+function  cancel(){ document.forms[0].submit(false); window.location.href="/admin"; }
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="post">
+  <h2>New Article</h2>
+  <form method="POST" action="/admin/preview" class="yui-skin-sam">
+    <input id="xtitle" name="xtitle" type="textbox" value="Enter the title here..." />
+    <br>
+    <br>
+    <textarea id="xcontent" name="xcontent"></textarea>
+    <script>showEditor("xcontent");</script>
+  </form>
+  <button onclick="preview()">Preview article</button> 
+  <button onclick="cancel()">Cancel edition</button> 
+</div><!-- post -->
+{% endblock %}
+
+{% block sidebar %}
+  <div class="panel"> 
+    <h1>Actions</h1> 
+    <ul> 
+      <li><a href="javascript:preview()">Preview article</a></li> 
+      <li><a href="javascript:cancel()" >Cancel edition</a></li> 
+    </ul> 
+  </div> 
+{% endblock %}

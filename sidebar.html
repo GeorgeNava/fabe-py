@@ -1,0 +1,51 @@
+  <div class="panel">
+    <h1>Why do I code?</h1>
+    <a href="/admin"><img id="avatar" src="/img/avatar.png"/></a>
+    <p><i>Code is fuel, code is vice, code is play, code is life.  I am code!</i>
+    </p>
+  </div>
+  <div class="panel">
+    <h1>My latest rants</h1>
+    <ul>{% for post in history %}
+      <li><a href="/blog/{{post.url}}">{{post.title}}</a></li>{% endfor %}
+    </ul>
+  </div>
+  <div class="panel">
+    <h1>My latest hacks</h1>
+    <ul>
+      <li><a href="http://mylittlehacks.appspot.com/readability" >Readability Jetpack</a></li>
+      <li><a href="http://mylittlehacks.appspot.com/screenshoot" >ScreenShoot Jetpack</a></li>
+      <li><a href="http://mylittlehacks.appspot.com/jsnip"       >Javascript Snippeteer</a></li>
+      <li><a href="http://mylittlehacks.appspot.com/dataislands" >Javascript Data Islands</a></li>
+      <li><a href="http://mylittlehacks.appspot.com/localstorage">Local Storage</a></li>
+      <li><a href="http://mylittlehacks.appspot.com/unmask"      >Unmasking Passwords</a></li>
+      <li><a href="http://mylittlehacks.appspot.com/modal"       >Modal Window</a></li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h1>My repositories</h1>
+    <ul>
+      <li><a href="http://github.com/georgenava"        >github - georgenava</a></li>
+      <li><a href="http://code.google.com/u/georgenava/">google code - georgenava</a></li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h1>My endless chatter</h1>
+    <ul>
+      <li><a href="http://twitter.com/georgenava"  >twitter.com/georgenava</a></li>
+      <li><a href="http://georgenava.jaiku.com"    >georgenava.jaiku.com</a></li>
+      <li><a href="http://georgenava.wordpress.com">georgenava.wordpress.com</a></li>
+      <li><a href="http://georgenava.posterous.com">georgenava.posterous.com</a></li>
+      <li><a href="http://georgenava.typepad.com"  >georgenava.typepad.com</a></li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h1>Contact me</h1>
+    <ul>
+      <li><a href="mailto:georgenava at gmail">georgenava at gmail</a></li>
+      <li><a href="mailto:georgenava at yahoo">georgenava at yahoo</a></li>
+    </ul>
+  </div>
+  <div class="panel">
+    <p class="powered">This blog is powered by FABE.py<br/>Hosted on AppEngine</p>
+  </div>

@@ -1,0 +1,17 @@
+{% extends "basetemplate.html" %}
+{% block title %}<title>{{entry.title}}</title>{% endblock %}
+{% block content %}
+<div class="post">
+  <h1>{{entry.title}}</h1>
+  <time>{{entry.date|date:"D, d M Y"}}</time>
+  <div>{{entry.content}}</div>
+</div><!-- post -->
+{% if options.usedisqus %}
+<div id="disqus_thread"></div>
+<script type="text/javascript">var disqus_skip_auth=true; var disqus_developer=0;</script>
+<script type="text/javascript" src="http://disqus.com/forums/{{options.disquscode}}/embed.js"></script>
+<noscript><a href="http://disqus.com/forums/{{options.disquscode}}/?url=ref">View the discussion thread.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+{% endif %}
+{% endblock %}
+{% block sidebar %}{% include "sidebar.html" %}{% endblock %}

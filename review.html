@@ -1,0 +1,33 @@
+{% extends "basetemplate.html" %}
+{% block title   %}<title>Review article</title>{% endblock %}
+{% block scripts %}
+<script>
+function update(){ document.forms[0].submit(); }
+function cancel(){ document.forms[0].submit(false); window.location.href="/admin"; }
+</script>
+{% endblock %}
+{% block content %}
+<div class="post">
+  <h1>{{post.title}}</h1>
+  <div>{{post.content}}</div>
+  <form method="post" action="/admin/update">
+    <input id="xtitle"   name="xtitle"   type="hidden" value="{{post.title|escape}}">
+    <input id="xcontent" name="xcontent" type="hidden" value="{{post.content|escape}}">
+    <br><br>
+    <button onclick="update()">Update article</button> 
+    <button onclick="cancel()">Cancel edition</button> 
+  </form>
+</div><!-- post -->
+{% endblock %}
+
+{% block sidebar %}
+  <div class="panel"> 
+    <h1>Actions</h1> 
+    <ul> 
+      <li><a href="javascript:update()">Update article</a></li> 
+      <li><a href="javascript:cancel()">Cancel edition </a></li> 
+    </ul> 
+  </div> 
+{% endblock %}
+
+ 
