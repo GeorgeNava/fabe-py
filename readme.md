@@ -8,7 +8,7 @@ A basic yet complete blog engine to demonstrate the power and simplicity of Goog
 
 This is a port of [FABE.js](http://github.com/GeorgeNava/fabe) to Python
 
-Download it from here [fabe.zip](http://github.com/GeorgeNava/fabe-py/downloads)
+Download it from here [fabe.zip](http://github.com/GeorgeNava/fabe-py/downloads) and follow these steps:
 
 - Get a Google AppEngine Account
 - Download the Python SDK
