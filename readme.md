@@ -10,4 +10,11 @@ This is a port of [FABE.js](http://github.com/GeorgeNava/fabe) to Python
 
 Download it from here [fabe.zip](http://github.com/GeorgeNava/fabe-py/downloads)
 
+- Get a Google AppEngine Account
+- Download the Python SDK
+- Create an application
+- Open app.yaml and set the application name
+- Upload everything to AppEngine
+- Run http://yourappname.appspot.con/install
 
+Presto! A nice blog engine for yourself, and free!
